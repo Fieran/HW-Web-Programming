@@ -2,27 +2,22 @@
 
 This github is for the development of an MMOG for the Computer Systems Web Programming course at Heriot-Watt, second year. We are to create this game using Javascript, HTML and CSS, using the likes of Node to handle the player connections. Sexurity is of course also a concern.
 
-Ross Davidsons Proposals:
 
-Democratic Dungeons: A text based adventure in which the players in game vote on which decisions to take. A simple example would be:
 
-"You see a house. Do you:
-  a. Open the door
-  b. Go around the back
-  c. leave"
-  
-  All players would then be prompted to choose one of the options, and the overall majority wins. Some kind of tie-breaker may be needed in the event of a hard 50/50 split, and a timer to avoid idle players from stopping the progression.
-  
-  
-Strategy RPG: This would be a simple game. Players would connect to a lobby, select a team of three units from sword, lance, axe and bow. For the base, each unit would have 5 HP.
-  Sword deals 2 damage to axe and 1 to lance
-  Lance deals 2 damage to sword and 1 to axe
-  Axe deals 2 damage to lance and 1 to sword
-  Bow deals 1 damage, but cannot counterattack and takes 2 damage from all attacks except other bows
-  
- They would then go into a game map and need to defeat 1 or more opponents, before returning to the lobby.
- 
- 
-Metroidvania like maps: Castlevania, Harmony of Despair is the inspiration here. Players would meet in a lobby, team up and tackle large maps with multiple paths possible depending upon the items chosen, fighting a boss at the end
- 
-  Characters would be able to choose from a thief (can lockpick), a warrior (can smash) or a mage (can teleport) to open up new paths for the team in the base. 
+V0.2
+
+After discussions, the design for the game has changed to focus on a more active design. Instead of a text adventure, players will join a lobby, followed by 3 or 5 of them splitting off into groups to traverse some topdown dungeons. These dungeons will be a series of rooms cleared through tasks such as puzzles (press allbuttons at the same time) or kiling all enemies. At certain intervals, there will also be rooms were a decision must be made, such as go left or go right. The players must vote, through a simple system of standing in a coloured area, which will then open the door to the route they have chosen.
+
+Each route will have its own rooms, with different puzzles or enemies, and a different boss at the end.
+
+For later versions of the game, this could be expanded, to have dungeons with more and more splits as you progress, perhaps using some form of random generation and modifiers,but for the initial version we will be sticking to a simple, binary choice part way through.
+
+V0.1
+
+For this game, we will be creating a Choose your own adventure, similar in nature to the old fighting fantasy books.
+
+For this game specifically, we will have the text broken up into brief burbs, followed by 1-4 of options. Everyone in the lobby will be able to select one of the options presented (go left, go right, pet dog, etc) to advance the adventure. The most voted for option will then occur ("You take the time to pet the dog. the dog yaps exicted and starts to dig at the ground, uncovering a huge bag of gold!") To help prevent the game stalling, a timer will end the vote after a specific amount of time. In the case of a tie, a coin toss will occur to keep the game flowing.
+
+The game will have basic 2d graphics to represent the current location, events and other such information that can be visually shown. An inventory list is a possible addition, but for the base release we will be focusing on getting the voting system to work to allow players to get through the adventure. Or die horribly due to poor decisions.
+
+This will mostly function through the use of Node.js, with HTML and CSS used to present the text and visuals.
