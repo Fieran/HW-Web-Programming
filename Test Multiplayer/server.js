@@ -16,8 +16,9 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, 'index.html'));
 });
 
+let port = Process.env.PORT || 5000;
 server.listen(5000, function() {
-  console.log('Starting server on port 5000');
+  console.log('Starting server on port 8000');
 });
 
 var players = {};
