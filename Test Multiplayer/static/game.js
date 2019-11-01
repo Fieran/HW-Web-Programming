@@ -1,4 +1,19 @@
 var socket = io();
+/*
+//get current nickname from cookies
+var nickName = cookie.get('user');
+if(!nickName) {
+	//ask for nickname if there is none
+	nickName = prompt ('Type in a nickname: ');
+	if(!nickName){
+		alert('We cannot work with you like that!');
+	}
+	else{
+		//store in cookies for future use
+		cookie.set('Nickname', nickName);
+	}
+}
+*/
 
 var movement = {
   up: false,
