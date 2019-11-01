@@ -16,10 +16,13 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname, 'index.html'));
 });
 
-let port = Process.env.PORT || 5000;
+server.listen(process.env.PORT || 5000, function(){
+console.log("Express server listening on port %d in %s mode", this.address().port,app.settings.env)});
+/*
 server.listen(5000, function() {
   console.log('Starting server on port 8000');
 });
+*/
 
 var players = {};
 io.on('connection', function(socket) {
