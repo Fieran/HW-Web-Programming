@@ -3,7 +3,12 @@ var myObstacles = [];
 var myScore;
 var mySound;
 var myMusic;
-function startGame() 
+function startGame(){	
+    myGamePiece = new component(30, 30, "red", 10, 120);
+	myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+	myObstacle = new component(10, 200, "green", 300, 120);	
+	myGameArea.start();
+}
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
