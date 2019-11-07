@@ -71,11 +71,35 @@ function component(width, height, color, x, y, type) {
 		}
     }
     this.newPos = function() {
-	    this.gravitySpeed += this.gravity;
-        this.x += this.speedX;
-        this.y += this.speedY + this.gravitySpeed;
+	    	this.gravitySpeed += this.gravity;
+        	this.x += this.speedX;
+        	this.y += this.speedY + this.gravitySpeed;
 		this.hitBottom();		
+	    	this.hitTop();
+		this.hitLeft();
+		this.hitRight();
     }    
+	
+	this.hitTop = function() {
+		var top = 0;
+		if ( this.y < top ) {
+			this.y = top;
+		}
+	}
+	
+	this.hitLeft = function() { 
+		var left = 0;
+		if (this.x < left ) {
+			this.x = left;
+		}
+	}
+	
+	this.hitRight = function() {
+		var right = myGameArea.canvas.width -this.width;
+		if (this.x > right) {
+			this.x=right;
+		}
+	}
 	this.hitBottom = function() {
     var rockbottom = myGameArea.canvas.height - this.height;
     if (this.y > rockbottom) {
