@@ -3,23 +3,13 @@ var myObstacles = [];
 var myScore;
 var mySound;
 var myMusic;
-
 function startGame() 
-{
-	mySound = new sound("ricardo.mp3");
-	myMusic = new sound("ricardo.mp3");
-    myGamePiece = new component(30, 30, "red", 10, 120);
-	myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-	myObstacle = new component(10, 200, "green", 300, 120);
-	myMusic.play();
-	myGameArea.start();
-}
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = 1280;
+        this.canvas.height = 720;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 		this.frameNo = 0; 
@@ -39,12 +29,10 @@ var myGameArea = {
     clearInterval(this.interval);
   }	
 }
-
 function everyinterval(n) {
   if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
   return false;
 }
-
 function component(width, height, color, x, y, type) {
     this.gamearea = myGameArea;
 	this.type = type;
@@ -52,7 +40,7 @@ function component(width, height, color, x, y, type) {
     this.height = height;
     this.speedX = 0;
     this.speedY = 0;    
-	this.gravity = 0.01;
+	this.gravity = 2.5;
 	this.gravitySpeed = 0;
 	this.bounce = 0.6;
     this.x = x;
@@ -61,21 +49,22 @@ function component(width, height, color, x, y, type) {
     ctx = myGameArea.context;
 		if (this.type == "text") 
 		{
-	  ctx.font = this.width + " " + this.height;
-      ctx.fillStyle = color;
-      ctx.fillText(this.text, this.x, this.y);
+			ctx.font = this.width + " " + this.height;
+			ctx.fillStyle = color;
+			ctx.fillText(this.text, this.x, this.y);
 		}
 		else {	
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+			ctx.fillStyle = color;
+			ctx.fillRect(this.x, this.y, this.width, this.height);
 		}
     }
+	
     this.newPos = function() {
-	    	this.gravitySpeed += this.gravity;
-        	this.x += this.speedX;
-        	this.y += this.speedY + this.gravitySpeed;
-		this.hitBottom();		
-	    	this.hitTop();
+	    this.gravitySpeed = this.gravity;
+        this.x += this.speedX;
+        this.y += this.speedY + this.gravitySpeed;
+		this.hitBottom();
+		this.hitTop();
 		this.hitLeft();
 		this.hitRight();
     }    
@@ -100,13 +89,15 @@ function component(width, height, color, x, y, type) {
 			this.x=right;
 		}
 	}
+	
 	this.hitBottom = function() {
-    var rockbottom = myGameArea.canvas.height - this.height;
-    if (this.y > rockbottom) {
-      this.y = rockbottom;
-	  this.gravitySpeed = -(this.gravitySpeed * this.bounce);
-    }
-  }
+		var rockbottom = myGameArea.canvas.height - this.height;
+		if (this.y > rockbottom) {
+		  this.y = rockbottom;
+		  this.gravitySpeed = -((this.gravitySpeed*10) * this.bounce);
+		}
+	}
+	
 	this.crashWith = function(otherobj) {
     var myleft = this.x;
     var myright = this.x + (this.width);
@@ -126,9 +117,7 @@ function component(width, height, color, x, y, type) {
     return crash;
   }
 }
-
 function updateGameArea() {
-
 	
 	var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for (i = 0; i < myObstacles.length; i += 1) {
@@ -143,22 +132,22 @@ function updateGameArea() {
 	myGameArea.frameNo += 1;
 	
 	
-	if (myGameArea.frameNo == 1 || everyinterval(150)) {
-    x = myGameArea.canvas.width;
-    minHeight = 20;
-    maxHeight = 200;
-    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-    minGap = 50;
-    maxGap = 200;
-    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-    myObstacles.push(new component(10, height, "green", x, 0));
-    myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
-  }
+	if (myGameArea.frameNo == 1 || everyinterval(100)) {
+		x = myGameArea.canvas.width;
+		minHeight = 100;
+		maxHeight = 620;
+		height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+		minGap = 100;
+		maxGap = 300;
+		gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+		myObstacles.push(new component(10, height, "green", x, 0));
+		myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
 	
 	for (i = 0; i < myObstacles.length; i += 1) {
-    myObstacles[i].x += -1;
-    myObstacles[i].update();
-  }
+		myObstacles[i].x += -1;
+		myObstacles[i].update();
+	}
 	
   myScore.text = "SCORE: " + myGameArea.frameNo;
   myScore.update();
@@ -167,16 +156,18 @@ function updateGameArea() {
 	
 	
     myGamePiece.speedX = 0;
-    myGamePiece.speedY = 0;    
+    myGamePiece.speedY = 0;  
+	
+
+	
     if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
     if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
-    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -1; }
+    if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }
     if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
    	
 	
 	
 }
-
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
