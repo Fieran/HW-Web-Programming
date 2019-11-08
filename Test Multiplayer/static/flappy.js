@@ -3,15 +3,36 @@ var myObstacles = [];
 var myScore;
 var mySound;
 var myMusic;
+document.cookie = 'user = user; path=/'
+
+
+
 function startGame(){	
+//get current nickname from cookies
+/*
+var nickName = cookie.get('user');
+if(!nickName) {
+	//ask for nickname if there is none
+	nickName = prompt ('Type in a nickname: ');
+	if(!nickName){
+		alert('We cannot work with you like that!');
+	}
+	else{
+		//store in cookies for future use
+		cookie.set('Nickname', nickName);
+	}
+}
+*/
     myGamePiece = new component(30, 30, "red", 10, 120);
 	myScore = new component("30px", "Consolas", "black", 280, 40, "text");
 	myObstacle = new component(10, 200, "green", 300, 120);	
 	myGameArea.start();
 }
 
+
 var myGameArea = {
     canvas : document.createElement("canvas"),
+	
     start : function() {
         this.canvas.width = 1280;
         this.canvas.height = 720;
@@ -73,28 +94,28 @@ function component(width, height, color, x, y, type) {
 		this.hitLeft();
 		this.hitRight();
     }    
-	
+	//collision for top
 	this.hitTop = function() {
 		var top = 0;
 		if ( this.y < top ) {
 			this.y = top;
 		}
 	}
-	
+	//collision for left
 	this.hitLeft = function() { 
 		var left = 0;
 		if (this.x < left ) {
 			this.x = left;
 		}
 	}
-	
+	//collision for right
 	this.hitRight = function() {
 		var right = myGameArea.canvas.width -this.width;
 		if (this.x > right) {
 			this.x=right;
 		}
 	}
-	
+	//collision for bottom
 	this.hitBottom = function() {
 		var rockbottom = myGameArea.canvas.height - this.height;
 		if (this.y > rockbottom) {
@@ -127,6 +148,16 @@ function updateGameArea() {
 	var x, height, gap, minHeight, maxHeight, minGap, maxGap;
   for (i = 0; i < myObstacles.length; i += 1) {
     if (myGamePiece.crashWith(myObstacles[i])) {
+		//make button for restart
+	  var button = document.createElement("button");
+	  button.innerHTML = "Restart" ;
+	  //append to html
+	  var body = document.getElementByTagName("body")[0];
+	  body.appendChild(button);
+	  //event handler
+	  button.addEventListener("click",function(){
+	  startgame.call(myGameArea);
+	  });
 	  mySound.play();
       myGameArea.stop();
       return;
@@ -164,10 +195,13 @@ function updateGameArea() {
     myGamePiece.speedY = 0;  
 	
 
-	
-    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -1; }
-    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 1; }
+	//left 
+    if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.speedX = -3; }
+	//right
+    if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.speedX = 2; }
+	//up
     if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.speedY = -5; }
+	//down
     if (myGameArea.keys && myGameArea.keys[40]) {myGamePiece.speedY = 1; }
    	
 	
