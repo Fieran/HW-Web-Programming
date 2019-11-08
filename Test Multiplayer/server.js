@@ -23,6 +23,12 @@ console.log("Express server listening on port %d in %s mode", this.address().por
 
 var players = {};
 io.on('connection', function(socket) {
+	util.log('A new player connected'+client.id);
+  socket.on('disconnect', function(){
+	  client.on('A player disconnected'+client.id)
+  });
+});
+/*
   socket.on('new player', function() {
     players[socket.id] = {
       x: 300,
@@ -43,8 +49,5 @@ io.on('connection', function(socket) {
     if (data.down) {
       player.y += 5;
     }
-  });
-
-setInterval(function() {
-  io.sockets.emit('state', players);
-}, 1000 / 60)});
+  },1000 / 60)});
+  */
