@@ -6,8 +6,12 @@
     </head>
 
     <body>
+	<!---plays music when game loads-->
+		<embed name"GoodMusic" src="/goodmusic.mp3" loop="true" hidden="true" autostart="true">
+		<!---implements socket io--->
         <script src="/socket.io/socket.io.js"></script>
         <script src="//cdn.jsdelivr.net/npm/phaser@3.3.0/dist/phaser.min.js"></script>
+		<!--use the game.js file-->
         <script src="js/game.js"></script>
     </body>
 
