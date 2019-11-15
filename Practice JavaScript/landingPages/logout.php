@@ -22,7 +22,7 @@ echo '<div class="container">
 	<div class="col">
 			<div class="card mb-3">
   <div class="card-body">
-<h1 style="color:white;">Goodbye</h1><p style="color:white;">You are now logged out.</p><p><a href="login.php">Login</a></p>
+<h1>Goodbye</h1><p>You are now logged out.</p><p><a href="login.php">Login</a></p>
   </div>
 			</div>
 	</div>

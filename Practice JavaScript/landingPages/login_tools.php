@@ -16,15 +16,15 @@ function load( $page = 'login.php' )
 }
 
 # Function to check email address and password. 
-function validate( $link, $email = '', $pwd = '')
+function validate( $link, $usrnme = '', $pwd = '')
 {
   # Initialize errors array.
   $errors = array() ; 
 
   # Check email field.
-  if ( empty( $email ) ) 
-  { $errors[] = 'Enter your email address.' ; } 
-  else  { $e = mysqli_real_escape_string( $link, trim( $email ) ) ; }
+  if ( empty( $usrnme ) ) 
+  { $errors[] = 'Enter your Username.' ; } 
+  else  { $usrnme = mysqli_real_escape_string( $link, trim( $usrnme ) ) ; }
 
   # Check password field.
   if ( empty( $pwd ) ) 
@@ -34,7 +34,7 @@ function validate( $link, $email = '', $pwd = '')
   # On success retrieve id, name, usertype, subscriber, subexpires from 'users' database.
   if ( empty( $errors ) ) 
   {
-    $q = "SELECT id, name, usertype, subscriber, subexpires FROM users WHERE email='$e' AND pass=SHA1('$p')" ;  
+    $q = "SELECT id, username FROM users WHERE username='$usrnme' AND pass=SHA1('$p')" ;  
     $r = mysqli_query ( $link, $q ) ;
 	
 	#If the entered information matches
@@ -44,7 +44,7 @@ function validate( $link, $email = '', $pwd = '')
       return array( true, $row ) ; 
     }
     # Or on failure set error message.
-    else { $errors[] = 'Email address and password not found.' ; }
+    else { $errors[] = 'Username and password not found.' ; }
   }
   # On failure retrieve error message/s.
   return array( false, $errors ) ; 
