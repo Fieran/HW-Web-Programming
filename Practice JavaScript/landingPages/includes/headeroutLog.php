@@ -29,89 +29,36 @@ require ( 'login_tools.php' ) ; load() ;
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
 	
-	<!-- Icon -->
-	<link rel="icon" href="images/crest.png">
-	
+
 	<!-- Title -->
-	<title>Focus Football</title>
+	<title>Video Game</title>
 	
 	</head> <!-- Head ends -->
 	 
    <body> <!-- Body begins -->
   
-  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   
-  <nav id="fanzineheader" class="navbar navbar-expand-lg navbar-dark bg-primary">
-  
-  <!-- Dropdown menu button for small screens -->
+  <!-- Dropdown button that appears if screen is small enough -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <div class="collapse navbar-collapse " id="navbarNav">
+  <div class="collapse navbar-collapse" id="navbarNav">
+  <!-- Links to different pages -->
     <ul class="navbar-nav">
-	<!-- Links to different pages -->
       <li class="nav-item active">
-        <a class="nav-link" href="indexLog.php">Home</a>
+        <a class="nav-link" class="navlink" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fixtures_results.php">Fixtures and Results</a>
+        <a class="nav-link" href="tutorial.php">Tutorial</a>
       </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="leaguetable.php">league Table</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="team.php">Team</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="matchreports.php">Match Reports</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="myprofile.php">My Profile</a>
-      </li>
-      <li class="nav-item">
+	    <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
-      </li>	
-	  
-	  <!-- Dropdown menu that is only visable for admins -->
-	  <?php
-	  if( $_SESSION['usertype'] == '1' )
-	  {	  
-	  echo'
-	 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Admin 
-        </a>
-		
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="manage_player/manage_players.php">Manage Players</a>
-		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="manage_user/manage_users.php">Manage Users</a>
-        <div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="manage_fixture/manage_fixtures.php">Manage Fixtures</a>
-		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="manage_report/manage_report.php">Manage Reports</a>
-		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="manage_event/manage_event.php">Manage Events</a>
-		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="newsletter.php">Newsletter</a>
-        </div>
-      </li>	 
-	  ';
-	  }
-?>	  
+      </li>
     </ul>
-  </div> <!-- End of nav bar collapse -->
-  
-	<!-- Brand image on right side of nav bar -->
-	<a class="navbar-brand" id="badge" href="#">
-		<img src="images/badge.svg" width="50" height="50" class="d-inline-block align-top" alt="">
-		Cowdenbeath FC
-	</a>
-</nav>   
+  </div>
+</nav>  
 <!-- NAV BAR ENDS -->
   
   </body> <!-- Body ends -->
