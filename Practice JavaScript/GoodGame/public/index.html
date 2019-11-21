@@ -1,11 +1,47 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en"> <!-- Set page language to english -->
 
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+                
+        <!-- Title -->
+        <title>Video Game</title>
     </head>
 
     <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  
+                    <!-- Dropdown button that appears if screen is small enough -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Links to different pages -->
+                      <ul class="navbar-nav">
+                        <li class="nav-item active">
+                          <a class="nav-link" class="navlink" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="tutorial.php">Tutorial</a>
+                        </li>
+                          <li class="nav-item">
+                          <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                          <li class="nav-item">
+                          <a class="nav-link" href="register.php">Register</a>
+                        </li> 
+                      </ul>
+                    </div>
+                  </nav>  
+                  
 	<!---plays music when game loads-->
 		<embed name"GoodMusic" src="/goodmusic.mp3" loop="true" hidden="true" autostart="true">
 		<!---implements socket io--->
