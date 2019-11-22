@@ -1,15 +1,19 @@
 {
-  "name": "phaser_tut2",
+  "name": "myapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "private": true,
+  "description": "JavaScript MMO",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Scott Westover",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
-  }
+  },
+  "devDependencies": {}
+  
 }

@@ -18,7 +18,7 @@ var scores = {
 app.use(express.static(__dirname + '/public'));
 //find index.html file to start the game
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.php');
 });
 //when a player connect
 io.on('connection', function (socket) {
