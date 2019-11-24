@@ -6,9 +6,9 @@ V0.3
 
 As the course progressed, we realised our planned game was a bit too amibitious for our current abilities.
 
-We thus have switched to an easier format, first trying a flappy bird like game, before settling on a spaceship game. You fly around a small ship that collects stars, each of which add to your teams overall score.n This is a team game, with players allocated to red or blue, and after a set score is met or time has passed, the game will end, and the team with the more stars collected wins.
+We thus have switched to an easier format, first trying a flappy bird like game, before settling on a spaceship game, Star Catcher. You fly around a small ship that collects stars, each of which add to your teams overall score. This is a team game, with players allocated to red or blue, and after a set score is met or time has passed, the game will end, and the team with the more stars collected wins.
 
-For ease of view, the player will see other players as a different type of sprite, to make following their own ship easier. The game also features live chat, with nicknames for the player.
+For ease of view, the player will see other players as a different type of sprite, to make following their own ship easier. The game also attempts to feature live chat, with nicknames for the players.
 
 V0.2
 
