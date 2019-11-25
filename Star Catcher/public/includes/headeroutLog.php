@@ -20,10 +20,7 @@ require ( 'login_tools.php' ) ; load() ;
 	
 	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	
-	<!-- Custom Style -->
-	<link rel="stylesheet" href="css/mystyle.css">
-	
+		
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
@@ -44,18 +41,21 @@ require ( 'login_tools.php' ) ; load() ;
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <div class="collapse navbar-collapse" id="navbarNav">
+   <div class="collapse navbar-collapse" id="navbarNav">
   <!-- Links to different pages -->
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" class="navlink" href="index.php">Home</a>
+        <a class="nav-link" class="navlink" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFT2SA1/VideoGame/indexLog.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tutorial.php">Tutorial</a>
+        <a class="nav-link" href="http://webdev.edinburghcollege.ac.uk/~HNDSOFT2SA1/VideoGame/tutorialLog.php">Tutorial</a>
       </li>
 	    <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       </li>
+	    <li class="nav-item">
+        <a class="nav-link" href="https://quiet-stream-49978.herokuapp.com/">Star Catcher</a>
+      </li> 
     </ul>
   </div>
 </nav>  
