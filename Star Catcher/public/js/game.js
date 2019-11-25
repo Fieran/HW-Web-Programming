@@ -88,12 +88,16 @@ function create() {
 		if (scores.red >= 1000) {
                 	window.alert("Red wins")
                 	scores.blue = 0;
+			self.blueScoreText.setText:'Blue: ' + scores.blue;
                 	scores.red = 0;
+			self.redScoreText.setText: 'Red: ' + scores.red;
                 }// close if
 		else if (scores.blue >= 1000) {
                 	window.alert("Blue wins")
                 	scores.blue = 0;
+			self.blueScoreText.setText:'Blue: ' + scores.blue;
                 	scores.red = 0;
+			self.redScoreText.setText: 'Red: ' + scores.red;
                 }// close if  
   	}); // close socket
 	
