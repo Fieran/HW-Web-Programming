@@ -2,9 +2,9 @@ var config = {
 	type: Phaser.AUTO,
 	parent: 'phaser-example',
 	//width of game window curreently set to width of browser
-	width: window.innerWidth,
+	width: 1280,
   	//height of game window currently set to height of browser
-  	height: window.innerHeight,
+  	height: 720,
 	
 	// Creates the physics used by the game.
   	physics: {
