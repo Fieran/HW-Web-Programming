@@ -86,11 +86,11 @@ function create() {
     		self.blueScoreText.setText('Blue: ' + scores.blue);
     		self.redScoreText.setText('Red: ' + scores.red);
                 	window.alert("Red wins")
-                	this.socket.emit('scoreReset');
+                	
                 }// close if
 		else if (scores.blue >= 1000) {
                 	window.alert("Blue wins")
-                	this.socket.emit('scoreReset');
+                	
                 }// close if  
   	}); // close socket
 	
