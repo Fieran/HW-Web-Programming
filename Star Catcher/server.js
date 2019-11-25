@@ -77,11 +77,11 @@ io.on('connection', function (socket) {
 		// win condition
 		if (score.red >= 1000){
 			score.red = 0;
-			score. blue = 0;
+			score.blue = 0;
 			window.alert("Red Wins");
 		} else if (score.blue >= 1000){
 			score.red = 0;
-			score. blue = 0;
+			score.blue = 0;
 			window.alert("Red Wins");
 		} // close if
 			
