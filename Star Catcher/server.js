@@ -83,11 +83,7 @@ io.on('connection', function (socket) {
 		io.emit('scoreUpdate', scores);
 	}); // close socket
 	
-	socket.on('scoreReset', function() {
-		scores.red = 0;
-		scores.blue = 0;
-	});
-	
+		
 });
 
 //have the port listen on the web server. if it is unavailable use port 5000 for local server
