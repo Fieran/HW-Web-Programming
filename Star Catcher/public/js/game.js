@@ -85,15 +85,12 @@ function create() {
   	this.socket.on('scoreUpdate', function (scores) {
     		self.blueScoreText.setText('Blue: ' + scores.blue);
     		self.redScoreText.setText('Red: ' + scores.red);
-		if (scores.red >= 1000) {
                 	window.alert("Red wins")
-                	scores.blue.reset();			
-                	scores.red.reset();			
+                	this.socket.emit('scoreReset');
                 }// close if
 		else if (scores.blue >= 1000) {
                 	window.alert("Blue wins")
-                	scores.blue.reset();			
-                	scores.red.reset();			
+                	this.socket.emit('scoreReset');
                 }// close if  
   	}); // close socket
 	
