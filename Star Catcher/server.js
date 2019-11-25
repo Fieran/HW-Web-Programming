@@ -69,19 +69,10 @@ io.on('connection', function (socket) {
 	socket.on('starCollected', function () {
 		if (players[socket.id].team === 'red') {
 			//add 10 points to red when red player collects item
-			scores.red += 10;
-			if (scores.red >= 1000){
-				scores.red = 0;
-				scores.blue = 0;
-			}
+			scores.red += 10;			
 		} else {
 			//add 10 points to blue when blue player collects item
 			scores.blue += 10;
-			if (scores.blue >= 1000){
-				scores.red = 0;
-				scores.blue = 0;
-			}
-
 		}// close if	
 			
 		
