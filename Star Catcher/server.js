@@ -72,9 +72,17 @@ io.on('connection', function (socket) {
 			//add 10 points to blue when blue player collects item
 			scores.blue += 10;
 
-		}// close if
+		}// close if	
+			
 		
-		// win condition
+		//reset the item to random position
+		star.x = Math.floor(Math.random() * 1000) + 50;
+		star.y = Math.floor(Math.random() * 600) + 50;
+		io.emit('starLocation', star);
+		io.emit('scoreUpdate', scores);
+	}); // close socket
+	
+	// win condition
 		if (score.red >= 1000){
 			score.red = 0;
 			score.blue = 0;
@@ -84,14 +92,6 @@ io.on('connection', function (socket) {
 			score.blue = 0;
 			window.alert("Red Wins");
 		} // close if
-			
-		
-		//reset the item to random position
-		star.x = Math.floor(Math.random() * 1000) + 50;
-		star.y = Math.floor(Math.random() * 600) + 50;
-		io.emit('starLocation', star);
-		io.emit('scoreUpdate', scores);
-	}); // close socket
 });
 
 //have the port listen on the web server. if it is unavailable use port 5000 for local server
