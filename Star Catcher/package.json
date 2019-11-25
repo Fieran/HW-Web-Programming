@@ -1,5 +1,5 @@
 {
-  "name": "Star Catcher",
+  "name": "myapp",
   "version": "1.0.0",
   "private": true,
   "description": "JavaScript MMO",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "rcd11,ra111,bn24",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
