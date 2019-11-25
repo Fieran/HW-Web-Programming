@@ -44,6 +44,8 @@ io.on('connection', function (socket) {
   	// send the current scores
   	socket.emit('scoreUpdate', scores);
 	
+	
+	
   	// update all other players of the new player
   	socket.broadcast.emit('newPlayer', players[socket.id]);
 
@@ -67,10 +69,18 @@ io.on('connection', function (socket) {
 	socket.on('starCollected', function () {
 		if (players[socket.id].team === 'red') {
 			//add 10 points to red when red player collects item
-			scores.red += 10;			
+			scores.red += 10;
+			if (scores.red >= 1000){
+				scores.red = 0;
+				scores.blue = 0;
+			}
 		} else {
 			//add 10 points to blue when blue player collects item
 			scores.blue += 10;
+			if (scores.blue >= 1000){
+				scores.red = 0;
+				scores.blue = 0;
+			}
 
 		}// close if	
 			
@@ -82,16 +92,7 @@ io.on('connection', function (socket) {
 		io.emit('scoreUpdate', scores);
 	}); // close socket
 	
-	// win condition
-		if (score.red >= 1000){
-			score.red = 0;
-			score.blue = 0;
-			window.alert("Red Wins");
-		} else if (score.blue >= 1000){
-			score.red = 0;
-			score.blue = 0;
-			window.alert("Red Wins");
-		} // close if
+	
 });
 
 //have the port listen on the web server. if it is unavailable use port 5000 for local server
