@@ -83,6 +83,10 @@ io.on('connection', function (socket) {
 		io.emit('scoreUpdate', scores);
 	}); // close socket
 	
+	socket.on('scoreReset', function() {
+		scores.red = 0;
+		scores.blue = 0;
+	});
 	
 });
 
