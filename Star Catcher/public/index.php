@@ -19,7 +19,6 @@ include ( 'includes/headerout.php' );
 
 
     </div>
-    
   </body>
    
 

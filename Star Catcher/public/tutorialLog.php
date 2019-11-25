@@ -1,7 +1,7 @@
 <?php 
 # Set page title and display header section.
 $page_title = 'Tutorial' ;
-include ( 'includes/headerout.php' );
+include ('includes/headeroutLog.php');
 ?>
 <!doctype html>
 
