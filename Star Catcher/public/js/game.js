@@ -85,6 +85,12 @@ function create() {
   	this.socket.on('scoreUpdate', function (scores) {
     		self.blueScoreText.setText('Blue: ' + scores.blue);
     		self.redScoreText.setText('Red: ' + scores.red);
+			if (scores.red === 1000) {
+        			//Read wins
+      			}// close if
+			else if (scores.blue === 1000) {
+        			//Read wins
+      			}// close if	
   	}); // close socket
 	
 	//the random location of the collected item in the game
